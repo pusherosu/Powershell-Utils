@@ -1,0 +1,2 @@
+#Rename all .jpg files in the working folder
+$i = 0; $date = Get-Date -uformat "%Y-%m-%d"; Get-ChildItem *.jpg | %{Rename-Item $_ -NewName ($date + '-{0:D6}.jpg' -f $i++)} 
