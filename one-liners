@@ -3,3 +3,6 @@ $i = 0; $date = Get-Date -uformat "%Y-%m-%d"; Get-ChildItem *.jpg | %{Rename-Ite
 
 # Enumerate UPnP root devices on the local network
 $s = New-Object -ComObject 'UPnP.UPnPDeviceFinder'; $s.FindByType('upnp:rootdevice', 0)
+
+# Disable Windows bandwidth reservation
+$r = "HKLM:\SOFTWARE\Policies\Microsoft\Psched"; New-Item -Path $r -Force | Out-Null; New-ItemProperty -Path $r -Name "NonBestEffortLimit" -Value "0" -PropertyType DWORD -Force | Out-Null
