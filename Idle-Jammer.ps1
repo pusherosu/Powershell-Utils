@@ -1,0 +1,1 @@
+powershell -NoP -NonI -W Hidden -Exec Bypass "Add-Type -AN System.Windows.Forms;while($true){$P=[Windows.Forms.Cursor]::Position;$x=($P.X%500)+1;$y=($P.Y%500)+1;[Windows.Forms.Cursor]::Position=New-Object Drawing.Point($x,$y);Sleep -S 10;}"
